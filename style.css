@@ -943,3 +943,57 @@ input:focus-visible {
         margin-top: var(--space-2);
     }
 }
+
+.card-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: var(--glass-bg, #fff);
+    border-radius: 18px;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.18);
+    padding: 20px 16px;
+    z-index: 9999;
+    max-width: 90vw;
+    width: 340px;
+    min-width: 220px;
+    animation: popupShow 0.3s;
+}
+
+.card-content {
+    text-align: center;
+}
+
+.card-image {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 12px;
+    border-radius: 12px;
+}
+
+@media (max-width: 480px) {
+    .card-popup {
+        width: 96vw;
+        max-width: 96vw;
+        padding: 14px 4vw;
+    }
+
+    .card-image {
+        width: 80vw;
+        max-width: 80vw;
+        height: auto;
+        border-radius: 10px;
+    }
+}
+
+@keyframes popupShow {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -60%) scale(0.95);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
