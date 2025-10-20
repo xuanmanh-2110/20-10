@@ -1,7 +1,7 @@
 // Danh sách các phần thưởng/vị trí trên vòng quay
 const items = [
-    "Thưởng 1", "Thưởng 2", "Thưởng 3", "Thưởng 4",
-    "Thưởng 5", "Thưởng 6", "Thưởng 7", "Thưởng 8"
+    "Bông hoa 1", "Bông hoa 2", "Bông hoa 3", "Bông hoa 4",
+    "Bông hoa 5", "Bông hoa 6", "Bông hoa 7", "Bông hoa 8"
 ];
 
 const colors = [
