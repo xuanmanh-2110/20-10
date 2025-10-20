@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vòng Quay Ngẫu Nhiên</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form id="name-form" autocomplete="off" style="text-align:center; margin-bottom:24px; ">
+        <label for="player-name" style="font-size:20px; color:#d6336c; font-family:'Dancing Script',cursive;">Nhập tên
+            người quay:</label>
+        <input type="text" id="player-name" name="player-name" placeholder="Nhập tên..." autocomplete="off"
+            style="font-size:18px; padding:8px 16px; border-radius:12px; border:2px solid #ffb6d5; margin-left:8px;">
+        <button type="submit"
+            style="font-size:18px; border-radius:12px; background:#ffb6d5; color:#fff; border:none; padding:8px 16px; margin-left:8px; cursor:pointer;">Lưu
+            tên</button>
+    </form>
+    <div class="wheel-container">
+        <canvas id="wheel" width="400" height="400"></canvas>
+        <button id="spin">Quay!</button>
+        <div id="result"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>

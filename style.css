@@ -1,0 +1,945 @@
+.reopen-card-btn {
+    background: linear-gradient(90deg, #ffb6d5 0%, #ff69b4 100%);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    padding: 10px 22px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 8px;
+    font-weight: bold;
+    box-shadow: 0 3px 10px rgba(255, 105, 180, 0.2);
+    transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+}
+
+.reopen-card-btn:hover {
+    background: linear-gradient(90deg, #ff69b4 0%, #ffb6d5 100%);
+    transform: scale(1.08);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.32);
+}
+
+/* ===== Reset + mobile-first ===== */
+:root {
+    --space-1: 8px;
+    --space-2: 12px;
+    --space-3: 16px;
+    --space-4: 24px;
+    --space-5: 32px;
+
+    /* kích thước tối đa cho bánh xe trên mobile */
+    --wheel-max: 360px;
+
+    /* Enhanced color palette */
+    --primary-pink: #ff69b4;
+    --secondary-pink: #ffb6d5;
+    --light-pink: #ffe6f2;
+    --ultra-light-pink: #fff0f6;
+    --dark-pink: #d72660;
+    --accent-pink: #ff1493;
+
+    /* Glass morphism colors */
+    --glass-bg: rgba(255, 240, 246, 0.25);
+    --glass-border: rgba(255, 105, 180, 0.18);
+}
+
+* {
+    box-sizing: border-box
+}
+
+body {
+    background: linear-gradient(135deg, var(--light-pink) 0%, var(--ultra-light-pink) 50%, #fff8fc 100%);
+    background-attachment: fixed;
+    font-family: 'Segoe UI', 'Inter', Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    /* giảm khoảng trống hai bên trên mobile */
+    padding-inline: var(--space-2);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Hoa trang trí với animation */
+body::before,
+body::after {
+    content: "🌸";
+    font-size: clamp(28px, 8vw, 64px);
+    position: fixed;
+    opacity: 0.15;
+    z-index: 0;
+    animation: float 6s ease-in-out infinite;
+    filter: blur(0.5px);
+}
+
+body::before {
+    left: var(--space-3);
+    top: var(--space-3);
+    animation-delay: 0s;
+}
+
+body::after {
+    right: var(--space-3);
+    bottom: var(--space-3);
+    animation-delay: 3s;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+    }
+
+    50% {
+        transform: translateY(-20px) rotate(5deg);
+    }
+}
+
+/* ===== Form styling ===== */
+#name-form {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    padding: var(--space-4);
+    margin: var(--space-4) auto;
+    max-width: 600px;
+    box-shadow: 0 8px 32px rgba(255, 105, 180, 0.1);
+    transition: all 0.3s ease;
+}
+
+#name-form:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(255, 105, 180, 0.15);
+}
+
+#name-form label {
+    display: block;
+    font-size: clamp(18px, 4vw, 22px) !important;
+    color: var(--dark-pink) !important;
+    font-family: 'Dancing Script', cursive !important;
+    margin-bottom: var(--space-2);
+    font-weight: 600;
+    text-shadow: 0 2px 4px rgba(255, 182, 213, 0.3);
+}
+
+#name-form input[type="text"] {
+    width: 100%;
+    max-width: 300px;
+    font-size: 16px !important;
+    padding: 12px 20px !important;
+    border-radius: 15px !important;
+    border: 2px solid transparent !important;
+    background: rgba(255, 255, 255, 0.8) !important;
+    backdrop-filter: blur(10px);
+    margin: var(--space-2) auto !important;
+    display: block;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.1);
+}
+
+#name-form input[type="text"]:focus {
+    outline: none !important;
+    border-color: var(--primary-pink) !important;
+    background: rgba(255, 255, 255, 0.95) !important;
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 105, 180, 0.2);
+}
+
+#name-form button[type="submit"] {
+    font-size: 16px !important;
+    border-radius: 15px !important;
+    background: linear-gradient(135deg, var(--secondary-pink), var(--primary-pink)) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 24px !important;
+    margin-top: var(--space-2) !important;
+    cursor: pointer !important;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+#name-form button[type="submit"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+}
+
+#name-form button[type="submit"]:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4) !important;
+}
+
+#name-form button[type="submit"]:hover::before {
+    left: 100%;
+}
+
+#name-form button[type="submit"]:active {
+    transform: translateY(0px) !important;
+}
+
+/* ===== Khung chính với glass morphism ===== */
+.wheel-container {
+    margin-top: var(--space-4);
+    display: inline-block;
+    background: var(--glass-bg);
+    backdrop-filter: blur(25px);
+    padding: clamp(16px, 4vw, 32px) clamp(14px, 4vw, 24px) clamp(14px, 4vw, 24px);
+    border-radius: 32px;
+    box-shadow:
+        0 8px 32px rgba(255, 105, 180, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+        0 0 60px rgba(255, 182, 213, 0.1);
+    border: 1px solid var(--glass-border);
+    position: relative;
+    overflow: visible;
+    width: min(92vw, 560px);
+    transition: all 0.4s ease;
+}
+
+.wheel-container:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 12px 40px rgba(255, 105, 180, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+        0 0 80px rgba(255, 182, 213, 0.15);
+}
+
+/* ===== Bánh xe (canvas) với enhanced effects ===== */
+canvas#wheel {
+    display: block;
+    margin: 0 auto var(--space-4) auto;
+    width: min(90vw, var(--wheel-max));
+    height: auto;
+    aspect-ratio: 1 / 1;
+    background: radial-gradient(circle at 60% 40%,
+            rgba(255, 240, 246, 0.9) 0%,
+            rgba(255, 230, 242, 0.8) 50%,
+            rgba(255, 182, 213, 0.6) 100%);
+    border-radius: 50%;
+    box-shadow:
+        0 20px 60px rgba(255, 105, 180, 0.3),
+        0 0 0 8px rgba(255, 182, 213, 0.4) inset,
+        0 0 0 12px rgba(255, 255, 255, 0.2) inset,
+        0 0 40px rgba(255, 105, 180, 0.2);
+    border: 4px solid rgba(255, 105, 180, 0.3);
+    position: relative;
+    transition: all 0.4s ease;
+    backdrop-filter: blur(10px);
+}
+
+canvas#wheel:hover {
+    transform: scale(1.02);
+    box-shadow:
+        0 25px 80px rgba(255, 105, 180, 0.4),
+        0 0 0 8px rgba(255, 182, 213, 0.6) inset,
+        0 0 0 12px rgba(255, 255, 255, 0.3) inset,
+        0 0 60px rgba(255, 105, 180, 0.3);
+}
+
+/* Thêm hiệu ứng glow cho canvas */
+canvas#wheel::before {
+    content: '';
+    position: absolute;
+    inset: -20px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255, 105, 180, 0.1) 0%, transparent 70%);
+    z-index: -1;
+    animation: pulse-glow 4s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.05);
+    }
+}
+
+/* ===== Nút bấm với enhanced effects ===== */
+button#spin,
+.open-card-btn,
+.close-card-btn {
+    padding: clamp(12px, 3vw, 16px) clamp(24px, 6vw, 40px);
+    font-size: clamp(16px, 4.5vw, 20px);
+    background: linear-gradient(135deg, var(--secondary-pink) 0%, var(--primary-pink) 50%, var(--accent-pink) 100%);
+    color: #fff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow:
+        0 6px 20px rgba(255, 105, 180, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 0.8px;
+    touch-action: manipulation;
+    position: relative;
+    overflow: hidden;
+    text-transform: uppercase;
+    backdrop-filter: blur(10px);
+}
+
+button#spin::before,
+.open-card-btn::before,
+.close-card-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+    transition: left 0.6s ease;
+}
+
+button#spin:hover,
+.open-card-btn:hover,
+.close-card-btn:hover {
+    background: linear-gradient(135deg, var(--accent-pink) 0%, var(--primary-pink) 50%, var(--secondary-pink) 100%);
+    transform: translateY(-3px) scale(1.05);
+    box-shadow:
+        0 12px 30px rgba(255, 105, 180, 0.4),
+        0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+        0 0 20px rgba(255, 105, 180, 0.2);
+}
+
+button#spin:hover::before,
+.open-card-btn:hover::before,
+.close-card-btn:hover::before {
+    left: 100%;
+}
+
+button#spin:active,
+.open-card-btn:active,
+.close-card-btn:active {
+    transform: translateY(-1px) scale(1.02);
+    transition: all 0.1s ease;
+}
+
+/* Thêm animation cho nút spin */
+button#spin {
+    animation: spin-button-glow 3s ease-in-out infinite;
+}
+
+@keyframes spin-button-glow {
+
+    0%,
+    100% {
+        box-shadow:
+            0 6px 20px rgba(255, 105, 180, 0.3),
+            0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+    }
+
+    50% {
+        box-shadow:
+            0 8px 25px rgba(255, 105, 180, 0.4),
+            0 0 0 1px rgba(255, 255, 255, 0.3) inset,
+            0 0 15px rgba(255, 105, 180, 0.3);
+    }
+}
+
+/* ===== Kết quả với enhanced styling ===== */
+#result {
+    margin-top: var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    font-size: clamp(18px, 5vw, 26px);
+    font-weight: 700;
+    color: var(--dark-pink);
+    text-shadow: 0 3px 12px rgba(255, 182, 213, 0.6);
+    letter-spacing: 1px;
+    background: var(--glass-bg);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 4px 20px rgba(255, 105, 180, 0.1);
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+}
+
+#result:not(:empty) {
+    animation: result-appear 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes result-appear {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.9);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ===== Backdrop cho popup ===== */
+.popup-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(255, 240, 246, 0.3);
+    backdrop-filter: blur(15px);
+    z-index: 9998;
+    opacity: 0;
+    transition: all 0.4s ease;
+}
+
+.popup-backdrop.show {
+    opacity: 1;
+}
+
+/* ===== Popup trúng thưởng với glass morphism ===== */
+.prize-popup {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--glass-bg);
+    backdrop-filter: blur(30px);
+    border: 1px solid var(--glass-border);
+    border-radius: 32px;
+    box-shadow:
+        0 20px 60px rgba(255, 105, 180, 0.3),
+        0 0 0 1px rgba(255, 255, 255, 0.2) inset,
+        0 0 100px rgba(255, 182, 213, 0.2);
+    padding: clamp(24px, 6vw, 48px) clamp(32px, 7vw, 64px);
+    z-index: 9999;
+    font-size: clamp(24px, 6vw, 40px);
+    color: var(--dark-pink);
+    font-weight: 700;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    letter-spacing: 1.5px;
+    text-shadow: 0 4px 20px rgba(255, 182, 213, 0.8);
+    max-width: min(90vw, 540px);
+    text-transform: uppercase;
+}
+
+.prize-popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.prize-popup::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg,
+            color-mix(in srgb, var(--secondary-pink) 60%, white 40%),
+            color-mix(in srgb, var(--primary-pink) 60%, white 40%),
+            color-mix(in srgb, var(--accent-pink) 60%, white 40%),
+            color-mix(in srgb, var(--secondary-pink) 60%, white 40%));
+    border-radius: 32px;
+    z-index: -1;
+    opacity: 0.6;
+    animation: prize-glow 2s ease-in-out infinite;
+}
+
+@keyframes prize-glow {
+
+    0%,
+    100% {
+        opacity: 0.4;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* ===== Popup thiệp với enhanced glass effect ===== */
+.card-popup {
+    position: fixed;
+    inset: 50% auto auto 50%;
+    transform: translate(-50%, -50%) scale(0.8);
+    background: var(--glass-bg);
+    backdrop-filter: blur(35px);
+    border: 2px solid var(--glass-border);
+    border-radius: 40px;
+    box-shadow:
+        0 25px 80px rgba(255, 105, 180, 0.35),
+        0 0 0 1px rgba(255, 255, 255, 0.25) inset,
+        0 0 0 8px rgba(255, 182, 213, 0.15) inset,
+        0 0 120px rgba(255, 182, 213, 0.25);
+    padding: clamp(28px, 6.5vw, 60px) clamp(32px, 7vw, 84px) clamp(24px, 6vw, 52px);
+    z-index: 10000;
+    opacity: 0;
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    overflow: visible;
+    max-width: min(88vw, 580px);
+}
+
+.card-popup.show {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+}
+
+.card-popup::before {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    background: linear-gradient(135deg,
+            rgba(255, 255, 255, 0.95) 0%,
+            rgba(255, 240, 246, 0.98) 100%);
+    border-radius: 40px;
+    z-index: -1;
+    animation: card-border-glow 3s ease-in-out infinite;
+}
+
+@keyframes card-border-glow {
+
+    0%,
+    100% {
+        opacity: 0.5;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.01);
+    }
+}
+
+.card-content {
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.card-content::before,
+.card-content::after {
+    content: "🌸";
+    font-size: clamp(32px, 8vw, 56px);
+    position: absolute;
+    opacity: 0.15;
+    z-index: 1;
+    animation: flower-float 4s ease-in-out infinite;
+    filter: blur(0.5px);
+}
+
+.card-content::before {
+    left: -40px;
+    top: -30px;
+    animation-delay: 0s;
+}
+
+.card-content::after {
+    right: -40px;
+    bottom: -30px;
+    animation-delay: 2s;
+}
+
+@keyframes flower-float {
+
+    0%,
+    100% {
+        transform: translateY(0px) rotate(0deg);
+        opacity: 0.15;
+    }
+
+    50% {
+        transform: translateY(-15px) rotate(10deg);
+        opacity: 0.25;
+    }
+}
+
+.card-content h2 {
+    color: var(--dark-pink);
+    font-size: clamp(26px, 6.5vw, 42px);
+    margin-bottom: clamp(16px, 4vw, 24px);
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    text-shadow: 0 4px 20px rgba(255, 182, 213, 0.8);
+    text-transform: uppercase;
+    position: relative;
+}
+
+.card-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary-pink), transparent);
+    border-radius: 2px;
+}
+
+.card-content p {
+    color: var(--primary-pink);
+    font-size: clamp(18px, 5vw, 26px);
+    margin-bottom: clamp(20px, 5vw, 32px);
+    font-style: italic;
+    font-weight: 500;
+    text-shadow: 0 3px 15px rgba(255, 230, 242, 0.8);
+    line-height: 1.6;
+    position: relative;
+}
+
+/* ===== Nút mở thiệp với enhanced styling ===== */
+.open-card-btn {
+    margin-top: var(--space-4);
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 3;
+}
+
+/* ===== Enhanced responsive design ===== */
+
+/* Desktop và màn hình lớn */
+@media (min-width: 1200px) {
+    :root {
+        --wheel-max: 520px;
+    }
+
+    body {
+        padding-inline: var(--space-5);
+    }
+
+    .wheel-container {
+        border-radius: 40px;
+        padding: var(--space-5);
+    }
+
+    #name-form {
+        max-width: 700px;
+        padding: var(--space-5);
+    }
+}
+
+/* Tablet và desktop nhỏ */
+@media (min-width: 768px) {
+    :root {
+        --wheel-max: 480px;
+    }
+
+    .wheel-container {
+        border-radius: 36px;
+        padding: var(--space-4) var(--space-5);
+    }
+
+    canvas#wheel {
+        border-width: 6px;
+    }
+
+    #name-form {
+        max-width: 650px;
+        padding: var(--space-5);
+        border-radius: 24px;
+    }
+
+    #name-form input[type="text"] {
+        max-width: 350px;
+        font-size: 18px !important;
+        padding: 14px 24px !important;
+    }
+
+    #name-form button[type="submit"] {
+        font-size: 18px !important;
+        padding: 14px 28px !important;
+    }
+
+    .prize-popup,
+    .card-popup {
+        border-radius: 48px;
+    }
+}
+
+/* Mobile landscape */
+@media (max-width: 767px) and (orientation: landscape) {
+    body {
+        padding-inline: var(--space-1);
+    }
+
+    .wheel-container {
+        width: 50vw;
+        margin: var(--space-2) auto;
+    }
+
+    #name-form {
+        margin: var(--space-2) auto;
+        padding: var(--space-2);
+    }
+}
+
+/* Mobile nhỏ */
+@media (max-width: 480px) {
+    #name-form {
+        padding: var(--space-3);
+        margin: var(--space-3) auto;
+    }
+
+    #name-form input[type="text"] {
+        max-width: 280px;
+        font-size: 14px !important;
+        padding: 10px 16px !important;
+    }
+
+    #name-form button[type="submit"] {
+        font-size: 14px !important;
+        padding: 10px 20px !important;
+    }
+}
+
+/* Màn cực nhỏ (≤ 360px) */
+@media (max-width: 360px) {
+    body {
+        padding-inline: var(--space-1);
+    }
+
+    .wheel-container {
+        width: 96vw;
+        padding: 12px;
+        border-radius: 20px;
+    }
+
+    canvas#wheel {
+        width: 90vw;
+    }
+
+    #name-form {
+        padding: var(--space-2);
+        border-radius: 16px;
+    }
+
+    .prize-popup,
+    .card-popup {
+        max-width: 95vw;
+        border-radius: 24px;
+    }
+}
+
+/* ===== Dark mode support ===== */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --glass-bg: rgba(255, 240, 246, 0.15);
+        --glass-border: rgba(255, 105, 180, 0.25);
+    }
+
+    body {
+        background: linear-gradient(135deg, #2d1b3d 0%, #1a0d2e 50%, #0f051a 100%);
+    }
+
+    .wheel-container {
+        background: rgba(255, 240, 246, 0.1);
+    }
+
+    #name-form {
+        background: rgba(255, 240, 246, 0.15);
+    }
+
+    #name-form input[type="text"] {
+        background: rgba(255, 255, 255, 0.1) !important;
+        color: #fff !important;
+    }
+
+    #name-form input[type="text"]::placeholder {
+        color: rgba(255, 255, 255, 0.6) !important;
+    }
+}
+
+/* ===== Hiệu ứng khi tải trang ===== */
+@keyframes page-load {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    animation: page-load 0.8s ease-out;
+}
+
+.wheel-container {
+    animation: page-load 1s ease-out 0.2s both;
+}
+
+#name-form {
+    animation: page-load 1s ease-out 0.1s both;
+}
+
+/* ===== Tối ưu chuyển động cho người dùng hạn chế motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    body {
+        animation: none !important;
+    }
+}
+
+/* ===== Hiệu ứng cuộn mượt ===== */
+html {
+    scroll-behavior: smooth;
+}
+
+/* ===== Focus accessibility ===== */
+button:focus-visible,
+input:focus-visible {
+    outline: 3px solid var(--primary-pink);
+    outline-offset: 2px;
+}
+
+/* ===== Hiệu ứng selection ===== */
+::selection {
+    background: var(--secondary-pink);
+    color: white;
+}
+
+::-moz-selection {
+    background: var(--secondary-pink);
+    color: white;
+}
+
+/* ===== Mobile thiệp responsive - nằm ngang cho dễ đọc ===== */
+@media (max-width: 767px) {
+    .card-popup {
+        max-width: 95vw;
+        max-height: 85vh;
+        padding: clamp(20px, 5vw, 32px) clamp(24px, 6vw, 40px);
+        overflow-y: auto;
+        border-radius: 24px;
+        transform: translate(-50%, -50%) scale(0.8);
+        /* Tối ưu cho việc đọc trên mobile */
+    }
+
+    .card-popup.show {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .card-content {
+        text-align: center;
+        padding: var(--space-2) 0;
+    }
+
+    .card-content h2 {
+        font-size: clamp(20px, 5.5vw, 28px);
+        margin-bottom: clamp(12px, 3vw, 18px);
+        line-height: 1.3;
+    }
+
+    .card-content p {
+        font-size: clamp(15px, 4vw, 20px);
+        line-height: 1.6;
+        text-align: center;
+        margin-bottom: clamp(16px, 4vw, 24px);
+        padding: 0 var(--space-2);
+    }
+
+    .card-content::before,
+    .card-content::after {
+        font-size: clamp(20px, 5vw, 32px);
+        opacity: 0.12;
+    }
+
+    .card-content::before {
+        left: -24px;
+        top: -16px;
+    }
+
+    .card-content::after {
+        right: -24px;
+        bottom: -16px;
+    }
+
+    .open-card-btn {
+        margin-top: var(--space-3);
+        padding: clamp(10px, 2.5vw, 14px) clamp(18px, 4.5vw, 28px);
+        font-size: clamp(14px, 3.5vw, 16px);
+        border-radius: 20px;
+    }
+}
+
+/* ===== Mobile cực nhỏ - thiệp tối ưu hơn nữa ===== */
+@media (max-width: 360px) {
+    .card-popup {
+        max-width: 98vw;
+        max-height: 90vh;
+        padding: var(--space-3) var(--space-2);
+        border-radius: 20px;
+    }
+
+    .card-content h2 {
+        font-size: clamp(18px, 5vw, 24px);
+        margin-bottom: var(--space-2);
+    }
+
+    .card-content p {
+        font-size: clamp(14px, 4vw, 18px);
+        margin-bottom: var(--space-3);
+        padding: 0 var(--space-1);
+    }
+
+    .open-card-btn {
+        padding: var(--space-2) var(--space-3);
+        font-size: 14px;
+    }
+
+    .card-content::before,
+    .card-content::after {
+        display: none;
+        /* Ẩn hoa trang trí trên màn hình rất nhỏ */
+    }
+}
+
+/* ===== Mobile landscape - thiệp nằm ngang tối ưu ===== */
+@media (max-width: 767px) and (orientation: landscape) and (max-height: 500px) {
+    .card-popup {
+        max-width: 90vw;
+        max-height: 95vh;
+        padding: var(--space-2) var(--space-4);
+        overflow-y: auto;
+    }
+
+    .card-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: var(--space-2);
+    }
+
+    .card-content h2 {
+        font-size: clamp(16px, 4vw, 24px);
+        margin-bottom: var(--space-1);
+    }
+
+    .card-content p {
+        font-size: clamp(13px, 3.5vw, 18px);
+        margin-bottom: var(--space-2);
+    }
+
+    .open-card-btn {
+        padding: var(--space-1) var(--space-3);
+        font-size: clamp(12px, 3vw, 16px);
+        margin-top: var(--space-2);
+    }
+}
