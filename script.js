@@ -212,6 +212,7 @@ function showCard(idx) {
     card.innerHTML = `
       <div class="card-content">
         <h2>Chúc mừng 20/10!</h2>
+        <img src="anh-hoa-tulip-26.jpg" alt="Ảnh vuông" class="card-image" style="display:block;margin:16px auto;width:120px;height:120px;object-fit:cover;border-radius:12px;">
         <p>${cards[idx]}</p>
         <button class="close-card-btn">Đóng</button>
       </div>
