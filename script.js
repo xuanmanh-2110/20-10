@@ -195,14 +195,14 @@ function showCard(idx) {
 }
 // Danh sách thiệp cho từng phần thưởng
 const cards = [
-    "Thiệp cho Thưởng 1: Chúc bạn luôn vui vẻ và hạnh phúc!",
-    "Thiệp cho Thưởng 2: Chúc bạn thành công trong mọi lĩnh vực!",
-    "Thiệp cho Thưởng 3: Chúc bạn nhận được nhiều niềm vui!",
-    "Thiệp cho Thưởng 4: Chúc bạn luôn xinh đẹp và rạng rỡ!",
-    "Thiệp cho Thưởng 5: Chúc bạn gặp nhiều may mắn!",
-    "Thiệp cho Thưởng 6: Chúc bạn luôn được yêu thương!",
-    "Thiệp cho Thưởng 7: Chúc bạn đạt được mọi ước mơ!",
-    "Thiệp cho Thưởng 8: Chúc bạn một ngày 20/10 thật ý nghĩa!"
+    "Bông hoa 1: Chúc bạn luôn tỏa sáng như ánh mặt trời buổi sớm! Dù ở đâu, hãy cứ mỉm cười thật tươi, lan tỏa năng lượng tích cực và khiến mọi người xung quanh cảm thấy ấm áp. Hôm nay là ngày của bạn — hãy sống trọn niềm vui nhé!",
+    "Bông hoa 2: Chúc bạn gặt hái thật nhiều thành công trong mọi lĩnh vực mà bạn đam mê. Dù là công việc, học tập hay cuộc sống, hãy luôn tin rằng nỗ lực của bạn rồi sẽ được đền đáp xứng đáng. Tự tin và tiếp tục tiến bước nhé!",
+    "Bông hoa 3: Chúc bạn nhận được thật nhiều niềm vui và những điều bất ngờ dễ thương trong ngày hôm nay! Cuộc sống đôi khi đơn giản chỉ cần một nụ cười, một lời chúc, hay một ánh mắt thân thương — và bạn xứng đáng có tất cả những điều ấy!",
+    "Bông hoa 4: Chúc bạn luôn xinh đẹp, rạng rỡ và tự tin trong mọi khoảnh khắc. Không chỉ là vẻ đẹp bên ngoài, mà còn là ánh sáng tỏa ra từ tâm hồn — nơi chứa đầy yêu thương, kiên cường và lòng tốt của bạn.",
+    "Bông hoa 5: Chúc bạn gặp thật nhiều may mắn và thuận lợi trên con đường phía trước. Dù có đôi lúc thử thách, hãy luôn giữ niềm tin và nụ cười, vì điều tốt đẹp sẽ đến với người biết kiên trì và yêu cuộc sống!",
+    "Bông hoa 6: Chúc bạn luôn được yêu thương và trân trọng bởi những người xung quanh. Dù ở bất kỳ nơi đâu, hy vọng bạn luôn cảm nhận được hơi ấm của tình thân, tình bạn và những mối quan hệ chân thành.",
+    "Bông hoa 7: Chúc bạn vững bước trên hành trình chinh phục ước mơ của mình. Mỗi ngày là một cơ hội mới để bạn tiến gần hơn đến điều bạn mong muốn — chỉ cần bạn tin vào chính mình, không gì là không thể!",
+    "Bông hoa 8: Chúc bạn có một ngày 20/10 thật trọn vẹn và đáng nhớ! Hãy cho phép bản thân tận hưởng những điều ngọt ngào, những lời yêu thương và những khoảnh khắc bình yên. Bạn xứng đáng với tất cả những điều tốt đẹp nhất!"
 ];
 // Tỉ lệ xuất hiện cho từng phần thưởng (tổng các số là 100)
 const ratios = [10, 10, 10, 10, 10, 10, 20, 20]; // Ví dụ: Thưởng 7 và 8 dễ ra hơn
