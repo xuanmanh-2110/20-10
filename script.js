@@ -45,17 +45,34 @@ function drawWheel() {
         ctx.restore();
     }
 
-    // Vẽ mũi tên (đỉnh trên cùng)
+    // Vẽ bông hoa (đỉnh trên cùng)
     ctx.save();
     ctx.translate(radius, radius);
+
+    // Vẽ cánh hoa
+    const petalCount = 5;
+    const petalRadius = 12;
+    const centerY = -radius + 25;
+
+    for (let i = 0; i < petalCount; i++) {
+        const angle = (i * 2 * Math.PI) / petalCount;
+        const x = Math.cos(angle) * 8;
+        const y = centerY + Math.sin(angle) * 8;
+
+        ctx.beginPath();
+        ctx.arc(x, y, petalRadius, 0, 2 * Math.PI);
+        ctx.fillStyle = "#ffb6c1"; // hồng nhạt (LightPink)
+        ctx.fill();
+    }
+
+    // Vẽ nhụy hoa
     ctx.beginPath();
-    ctx.moveTo(0, -radius + 10);
-    ctx.lineTo(-16, -radius + 40);
-    ctx.lineTo(16, -radius + 40);
-    ctx.closePath();
-    ctx.fillStyle = "#e74c3c";
+    ctx.arc(0, centerY, 6, 0, 2 * Math.PI);
+    ctx.fillStyle = "#fdff83ff"; // vàng tươi (Gold)
     ctx.fill();
+
     ctx.restore();
+
 }
 
 drawWheel();
