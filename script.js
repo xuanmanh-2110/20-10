@@ -110,14 +110,15 @@ nameForm.addEventListener("submit", function (e) {
 
 // Danh sách thiệp cho từng phần thưởng
 const cards = [
-    "Bông hoa 1: Chúc bạn luôn tỏa sáng như ánh mặt trời buổi sớm! Dù ở đâu, hãy cứ mỉm cười thật tươi, lan tỏa năng lượng tích cực và khiến mọi người xung quanh cảm thấy ấm áp. Hôm nay là ngày của bạn — hãy sống trọn niềm vui nhé!",
-    "Bông hoa 2: Chúc bạn gặt hái thật nhiều thành công trong mọi lĩnh vực mà bạn đam mê. Dù là công việc, học tập hay cuộc sống, hãy luôn tin rằng nỗ lực của bạn rồi sẽ được đền đáp xứng đáng. Tự tin và tiếp tục tiến bước nhé!",
-    "Bông hoa 3: Chúc bạn nhận được thật nhiều niềm vui và những điều bất ngờ dễ thương trong ngày hôm nay! Cuộc sống đôi khi đơn giản chỉ cần một nụ cười, một lời chúc, hay một ánh mắt thân thương — và bạn xứng đáng có tất cả những điều ấy!",
-    "Bông hoa 4: Chúc bạn luôn xinh đẹp, rạng rỡ và tự tin trong mọi khoảnh khắc. Không chỉ là vẻ đẹp bên ngoài, mà còn là ánh sáng tỏa ra từ tâm hồn — nơi chứa đầy yêu thương, kiên cường và lòng tốt của bạn.",
-    "Bông hoa 5: Chúc bạn gặp thật nhiều may mắn và thuận lợi trên con đường phía trước. Dù có đôi lúc thử thách, hãy luôn giữ niềm tin và nụ cười, vì điều tốt đẹp sẽ đến với người biết kiên trì và yêu cuộc sống!",
-    "Bông hoa 6: Chúc bạn luôn được yêu thương và trân trọng bởi những người xung quanh. Dù ở bất kỳ nơi đâu, hy vọng bạn luôn cảm nhận được hơi ấm của tình thân, tình bạn và những mối quan hệ chân thành.",
-    "Bông hoa 7: Chúc bạn vững bước trên hành trình chinh phục ước mơ của mình. Mỗi ngày là một cơ hội mới để bạn tiến gần hơn đến điều bạn mong muốn — chỉ cần bạn tin vào chính mình, không gì là không thể!",
-    "Bông hoa 8: Chúc bạn có một ngày 20/10 thật trọn vẹn và đáng nhớ! Hãy cho phép bản thân tận hưởng những điều ngọt ngào, những lời yêu thương và những khoảnh khắc bình yên. Bạn xứng đáng với tất cả những điều tốt đẹp nhất!"
+    "Bông hoa 1: Chúc bạn luôn tỏa sáng như ánh mặt trời buổi sớm! Sinh nhật hôm nay hãy cười thật rạng rỡ, lan tỏa năng lượng tích cực và khiến mọi người xung quanh cảm thấy ấm áp nhé!",
+    "Bông hoa 2: Chúc bạn tuổi mới đạt được thật nhiều thành công trong những điều bạn theo đuổi. Dù là công việc, học tập hay cuộc sống, nỗ lực của bạn chắc chắn sẽ được đáp lại xứng đáng!",
+    "Bông hoa 3: Chúc bạn nhận được thật nhiều niềm vui và những bất ngờ dễ thương trong ngày đặc biệt này! Mong rằng mỗi khoảnh khắc hôm nay đều mang đến cho bạn thật nhiều tiếng cười.",
+    "Bông hoa 4: Chúc bạn luôn xinh đẹp, rạng rỡ và tự tin trong hành trình mới của tuổi mới. Ánh sáng đẹp nhất luôn đến từ trái tim đầy yêu thương và ấm áp của bạn.",
+    "Bông hoa 5: Chúc bạn gặp nhiều may mắn và thuận lợi trong năm tuổi mới. Dù đôi lúc có thử thách, hãy giữ niềm tin và nụ cười — bởi những điều tốt đẹp luôn chờ người kiên trì!",
+    "Bông hoa 6: Chúc bạn luôn được yêu thương và trân trọng bởi những người thân yêu. Sinh nhật này mong bạn cảm nhận trọn vẹn vòng tay ấm áp và những tình cảm chân thành xung quanh mình.",
+    "Bông hoa 7: Chúc bạn vững vàng trên con đường hướng đến ước mơ. Tuổi mới là cơ hội mới — chỉ cần bạn tin vào chính mình, bạn chắc chắn sẽ chạm đến những điều mình mong đợi!",
+    "Bông hoa 8: Chúc bạn có một ngày sinh nhật thật trọn vẹn và đáng nhớ! Hãy tận hưởng những điều ngọt ngào, những lời chúc dễ thương và những khoảnh khắc bình yên dành riêng cho bạn."
+
 ];
 
 // Tỉ lệ xuất hiện cho từng phần thưởng (tổng các số là 100)
@@ -211,7 +212,7 @@ function showCard(idx) {
     card.className = "card-popup";
     card.innerHTML = `
       <div class="card-content">
-        <h2>Chúc mừng 20/10!</h2>
+        <h2>Chúc mừng sinh nhật!</h2>
         <img src="anh-hoa-tulip-26.jpg" alt="Ảnh vuông" class="card-image" style="display:block;margin:16px auto;width:120px;height:120px;object-fit:cover;border-radius:12px;">
         <p>${cards[idx]}</p>
         <button class="close-card-btn">Đóng</button>
