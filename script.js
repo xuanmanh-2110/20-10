@@ -122,7 +122,8 @@ const cards = [
 ];
 
 // Tỉ lệ xuất hiện cho từng phần thưởng (tổng các số là 100)
-const ratios = [5, 12, 12, 5, 12, 12, 21, 21]; // 7 & 8 dễ ra hơn
+const ratios = [12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5, 12.5];
+
 
 // ====== FIX: TÍNH GÓC DỪNG CHUẨN THEO MŨI TÊN Ở ĐỈNH ======
 spinBtn.onclick = function () {
